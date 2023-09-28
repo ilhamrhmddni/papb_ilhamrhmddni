@@ -1,16 +1,26 @@
+import 'dart:js';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wisatapahala/loginpage.dart';
+import 'package:wisatapahala/main.dart';
 import 'package:wisatapahala/tabunganpage.dart';
+import 'auth_model.dart'; // Pastikan pathnya sesuai dengan struktur direktori Anda
 
+final authModel = Provider.of<AuthModel>(context, listen: false);
+
+// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
   final bool isLoggedIn; // Tambahkan parameter isLoggedIn
+  late int selectedItemIndex;
   final Function(int, int) navigateToTabungan; // Callback function
 
   HomePage(
       {required this.isLoggedIn,
       required this.navigateToTabungan,
+      required this.selectedItemIndex,
       required Null Function(dynamic bool)
           loginCallback}); // Konstruktor dengan parameter
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -18,7 +28,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedItemIndex = 0;
   int targetTabungan = 1000; // Properti untuk menyimpan target tabungan
-  bool isLoggedIn = true; // Move isLoggedIn to the state of HomePage
+  bool isLoggedIn = true; // Move isLoggedIn to the state of HomePage\
+
+  void _selectItem(int index) {
+    setState(() {
+      widget.selectedItemIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

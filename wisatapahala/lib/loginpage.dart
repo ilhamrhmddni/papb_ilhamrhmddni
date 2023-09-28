@@ -122,6 +122,7 @@ class MyApp extends StatelessWidget {
         navigateToTabungan: (selectedItemIndex, targetTabungan) {
           0;
         },
+        selectedItemIndex: 0,
       ),
     );
   }

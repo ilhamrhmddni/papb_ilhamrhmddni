@@ -18,7 +18,9 @@ class Tabungan extends StatefulWidget {
 class _TabunganState extends State<Tabungan> {
   int tabungan = 0; // Menyimpan jumlah tabungan
   TextEditingController inputController = TextEditingController();
-  List<int> riwayatTabungan = []; // Menyimpan riwayat tabungan
+  List<int> riwayatTabungan = [];
+
+  get selectedItemIndex => null; // Menyimpan riwayat tabungan
 
   void tambahTabungan(int nilai) {
     setState(() {
@@ -152,6 +154,15 @@ class _TabunganState extends State<Tabungan> {
                       ),
                     );
                   },
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, selectedItemIndex);
+                },
+                child: Text('Kembali ke Pilih Item'),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF0dad9c),
                 ),
               ),
             ],

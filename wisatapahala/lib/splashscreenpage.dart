@@ -23,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
             navigateToTabungan: (int selectedItemIndex, int targetTabungan) {
               0;
             },
+            selectedItemIndex: 0,
           ),
         ),
       );
