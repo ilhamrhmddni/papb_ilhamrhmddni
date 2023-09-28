@@ -11,7 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Add a 2-second delay (or as needed)
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       // Navigate to the main page after the delay
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(

@@ -66,7 +66,8 @@ class _TabunganState extends State<Tabungan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF0dad9c),
+        backgroundColor:
+            Color(0xFF0dad9c), // Mengubah warna AppBar menjadi hijau
         title: Text(
           'Wisata Pahala',
           style: TextStyle(
@@ -74,79 +75,87 @@ class _TabunganState extends State<Tabungan> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Item ${widget.selectedItemIndex}',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+      body: Padding(
+        padding:
+            const EdgeInsets.all(20.0), // Tambahkan padding ke seluruh konten
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Item ${widget.selectedItemIndex}',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Jumlah Tabungan: $tabungan',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.black,
+              SizedBox(height: 20),
+              Text(
+                'Jumlah Tabungan: $tabungan',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Target Tabungan: ${widget.targetTabungan}',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.black,
+              SizedBox(height: 20),
+              Text(
+                'Target Tabungan: ${widget.targetTabungan}',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: inputController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Tambah Tabungan'),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                int nilaiTambah = int.tryParse(inputController.text) ?? 0;
-                if (nilaiTambah > 0) {
-                  tambahTabungan(nilaiTambah);
-                  inputController.clear();
-                }
-              },
-              child: Text('Tambah Tabungan'),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Riwayat Tabungan:',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+              SizedBox(
+                height: 20,
               ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: riwayatTabungan.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text('Rp. ${riwayatTabungan[index]}'),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () {
-                        hapusTabungan(index);
-                      },
-                    ),
-                  );
+              TextField(
+                controller: inputController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'Tambah Tabungan'),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  int nilaiTambah = int.tryParse(inputController.text) ?? 0;
+                  if (nilaiTambah > 0) {
+                    tambahTabungan(nilaiTambah);
+                    inputController.clear();
+                  }
                 },
+                child: Text('Tambah Tabungan'),
+                style: ElevatedButton.styleFrom(
+                  primary:
+                      Color(0xFF0dad9c), // Mengubah warna button menjadi hijau
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Text(
+                'Riwayat Tabungan:',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: riwayatTabungan.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text('Rp. ${riwayatTabungan[index]}'),
+                      trailing: IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          hapusTabungan(index);
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

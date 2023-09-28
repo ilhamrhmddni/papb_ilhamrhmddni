@@ -70,28 +70,39 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
+        backgroundColor:
+            Color(0xFF0dad9c), // Mengubah warna AppBar menjadi hijau
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
-            ),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(labelText: 'Password'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _signIn(
-                    context); // Memanggil _signIn dengan mengirimkan context
-              },
-              child: Text('Login'),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 20.0), // Tambahkan margin di sini
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(labelText: 'Email'),
+              ),
+              TextField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(labelText: 'Password'),
+              ),
+              SizedBox(height: 20), // Tambahkan jarak vertikal
+              ElevatedButton(
+                onPressed: () {
+                  _signIn(
+                      context); // Memanggil _signIn dengan mengirimkan context
+                },
+                child: Text('Login'),
+                style: ElevatedButton.styleFrom(
+                  primary:
+                      Color(0xFF0dad9c), // Mengubah warna button menjadi hijau
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
