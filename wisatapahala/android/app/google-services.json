@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "422558071524",
+    "project_id": "wisata-pahala-papb",
+    "storage_bucket": "wisata-pahala-papb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422558071524:android:98ce8f3dd92a916a2f0af1",
+        "android_client_info": {
+          "package_name": "com.example.wisatapahala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422558071524-l1560dihtp002h1rnp3b20dkqfjuqrs9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR-Ju62Un8g9OAipH74f4Cue_jQBfkMnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422558071524-l1560dihtp002h1rnp3b20dkqfjuqrs9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
