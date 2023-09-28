@@ -4,9 +4,11 @@ import 'package:wisatapahala/tabunganpage.dart';
 
 class HomePage extends StatefulWidget {
   final bool isLoggedIn; // Tambahkan parameter isLoggedIn
+  final Function(int, int) navigateToTabungan; // Callback function
 
   HomePage(
       {required this.isLoggedIn,
+      required this.navigateToTabungan,
       required Null Function(dynamic bool)
           loginCallback}); // Konstruktor dengan parameter
   @override
@@ -101,9 +103,10 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => Tabungan(
+                      targetTabungan: targetTabungan,
+                      selectedItemIndex: selectedItemIndex,
                       isLoggedIn: true,
-                      selectedItemIndex: 0,
-                      targetTabungan: 0,
+                      navigateToTabungan: int,
                     ),
                   ),
                 );
@@ -113,12 +116,15 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => LoginPage(
-                      selectedItemIndex: 0,
-                      targetTabungan: 0,
-                      isLoggedIn: true,
+                      targetTabungan: targetTabungan,
+                      selectedItemIndex: selectedItemIndex,
+                      navigateToTabungan: (int selectedIndex, int target) {
+                        0;
+                      },
                       loginCallback: (bool) {
                         0;
                       },
+                      isLoggedIn: true,
                     ), // Sesuaikan dengan nilai login yang benar
                   ),
                 );

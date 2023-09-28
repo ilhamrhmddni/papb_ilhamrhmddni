@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Tabungan extends StatefulWidget {
+  final bool isLoggedIn;
   final int selectedItemIndex;
   final int targetTabungan;
 
   Tabungan(
       {required this.selectedItemIndex,
       required this.targetTabungan,
-      required bool isLoggedIn});
+      required this.isLoggedIn,
+      required Type navigateToTabungan});
 
   @override
   _TabunganState createState() => _TabunganState();
