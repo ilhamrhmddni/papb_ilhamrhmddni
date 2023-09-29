@@ -6,7 +6,8 @@ import 'package:wisatapahala/main.dart';
 import 'package:wisatapahala/tabunganpage.dart';
 import 'auth_model.dart'; // Pastikan pathnya sesuai dengan struktur direktori Anda
 
-final authModel = Provider.of<AuthModel>(context, listen: false);
+final authModel =
+    Provider.of<AuthModel>(context as BuildContext, listen: false);
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
