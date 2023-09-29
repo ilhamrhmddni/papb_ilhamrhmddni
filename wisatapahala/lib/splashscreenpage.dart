@@ -10,9 +10,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Add a 2-second delay (or as needed)
     Future.delayed(Duration(seconds: 3), () {
-      // Navigate to the main page after the delay
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => HomePage(
@@ -33,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xFF0dad9c), // Change to your desired background color
+        color: Color(0xFF0dad9c),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,14 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 'asset/icons/logoputih.png',
                 width: 100,
                 height: 100,
-              ), // Display the splash screen image
-              SizedBox(height: 20), // Space between logo and text
+              ),
+              SizedBox(height: 20),
               Text(
                 'Wisata Pahala',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white, // Text color
+                  color: Colors.white,
                 ),
               ),
             ],

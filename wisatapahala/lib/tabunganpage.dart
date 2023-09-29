@@ -16,18 +16,15 @@ class Tabungan extends StatefulWidget {
 }
 
 class _TabunganState extends State<Tabungan> {
-  int tabungan = 0; // Menyimpan jumlah tabungan
+  int tabungan = 0;
   TextEditingController inputController = TextEditingController();
-  List<int> riwayatTabungan = []; // Menyimpan riwayat tabungan
+  List<int> riwayatTabungan = [];
 
   void tambahTabungan(int nilai) {
     setState(() {
       tabungan += nilai;
       riwayatTabungan.add(nilai);
-
-      // Cek apakah target tercapai
       if (tabungan >= widget.targetTabungan) {
-        // Tampilkan popup target tercapai
         _showTargetAchievedPopup();
       }
     });
@@ -41,7 +38,6 @@ class _TabunganState extends State<Tabungan> {
     });
   }
 
-  // Fungsi untuk menampilkan popup target tercapai
   void _showTargetAchievedPopup() {
     showDialog(
       context: context,

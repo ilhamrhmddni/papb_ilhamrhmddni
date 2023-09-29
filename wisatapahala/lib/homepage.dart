@@ -3,22 +3,21 @@ import 'package:wisatapahala/loginpage.dart';
 import 'package:wisatapahala/tabunganpage.dart';
 
 class HomePage extends StatefulWidget {
-  final bool isLoggedIn; // Tambahkan parameter isLoggedIn
-  final Function(int, int) navigateToTabungan; // Callback function
+  final bool isLoggedIn;
+  final Function(int, int) navigateToTabungan;
 
   HomePage(
       {required this.isLoggedIn,
       required this.navigateToTabungan,
-      required Null Function(dynamic bool)
-          loginCallback}); // Konstruktor dengan parameter
+      required Null Function(dynamic bool) loginCallback});
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int selectedItemIndex = 0;
-  int targetTabungan = 1000; // Properti untuk menyimpan target tabungan
-  bool isLoggedIn = true; // Move isLoggedIn to the state of HomePage
+  int targetTabungan = 1000;
+  bool isLoggedIn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +44,11 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               setState(() {
                 selectedItemIndex = index;
-
-                // Mengatur target tabungan berdasarkan item yang dipilih
                 if (selectedItemIndex == 0) {
-                  targetTabungan = 1000; // Contoh target tabungan untuk item 0
+                  targetTabungan = 1000;
                 } else if (selectedItemIndex == 1) {
-                  targetTabungan = 1500; // Contoh target tabungan untuk item 1
+                  targetTabungan = 1500;
                 }
-                // Tambahkan pernyataan berdasarkan item lainnya
               });
             },
             child: Container(
@@ -96,9 +92,7 @@ class _HomePageState extends State<HomePage> {
         child: ElevatedButton(
           onPressed: () {
             if (selectedItemIndex != -1) {
-              // Periksa status login sebelum navigasi
               if (widget.isLoggedIn) {
-                // Menggunakan widget.isLoggedIn
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -111,7 +105,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               } else {
-                // Jika isLoggedIn adalah false, navigasikan ke halaman Login
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -125,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                         0;
                       },
                       isLoggedIn: true,
-                    ), // Sesuaikan dengan nilai login yang benar
+                    ),
                   ),
                 );
               }
@@ -133,9 +126,7 @@ class _HomePageState extends State<HomePage> {
           },
           style: ElevatedButton.styleFrom(
             // ignore: deprecated_member_use
-            primary: selectedItemIndex != -1
-                ? Color(0xFF0dad9c) // Color when selectedItemIndex is not -1
-                : Colors.grey, // Color when selectedItemIndex is -1 (disabled)
+            primary: selectedItemIndex != -1 ? Color(0xFF0dad9c) : Colors.grey,
           ),
           child: Text(
             'Pilih',

@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:wisatapahala/tabunganpage.dart';
 import 'homepage.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
 class LoginPage extends StatelessWidget {
   final int targetTabungan;
   final int selectedItemIndex;
   final Function(int, int) navigateToTabungan;
-  final Function(bool)
-      loginCallback; // Menggunakan callback untuk mengirim status login
+  final Function(bool) loginCallback;
 
   LoginPage({
     required this.navigateToTabungan,
@@ -27,13 +22,8 @@ class LoginPage extends StatelessWidget {
   void _signIn(BuildContext context) {
     final email = _emailController.text;
     final password = _passwordController.text;
-
-    // Memeriksa apakah email dan password adalah admin
-    if (email == 'admin' && password == 'admin') {
-      // Memanggil fungsi loginCallback untuk mengubah status login menjadi true
+    if (email == '1' && password == '1') {
       loginCallback(true);
-
-      // Navigasi ke halaman beranda (HomePage)
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -44,7 +34,6 @@ class LoginPage extends StatelessWidget {
                     navigateToTabungan: int,
                   )));
     } else {
-      // Jika bukan admin, tampilkan pesan kesalahan
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -70,13 +59,11 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
-        backgroundColor:
-            Color(0xFF0dad9c), // Mengubah warna AppBar menjadi hijau
+        backgroundColor: Color(0xFF0dad9c),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 20.0), // Tambahkan margin di sini
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -89,16 +76,14 @@ class LoginPage extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(labelText: 'Password'),
               ),
-              SizedBox(height: 20), // Tambahkan jarak vertikal
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  _signIn(
-                      context); // Memanggil _signIn dengan mengirimkan context
+                  _signIn(context);
                 },
                 child: Text('Login'),
                 style: ElevatedButton.styleFrom(
-                  primary:
-                      Color(0xFF0dad9c), // Mengubah warna button menjadi hijau
+                  primary: Color(0xFF0dad9c),
                 ),
               ),
             ],
